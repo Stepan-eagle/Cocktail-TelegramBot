@@ -9,11 +9,11 @@ import static com.stepa.spring.telegrambot.cocktailbot.command.CommandUtils.getC
 
 public class IngrCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
-    public final static String START_MESSAGE = "Введите ингредиенты через запятую";
+    public final static String MESSAGE = "Введите ингредиенты через запятую";
 
     @Override
     public void execute(Update update) {
-        sendBotMessageService.sendMessage(getChatId(update), START_MESSAGE);
+        sendBotMessageService.sendMessage(getChatId(update), MESSAGE);
     }
 
     public IngrCommand(SendBotMessageService sendBotMessageService) {

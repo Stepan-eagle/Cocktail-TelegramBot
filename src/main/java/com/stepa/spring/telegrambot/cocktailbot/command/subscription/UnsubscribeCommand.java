@@ -11,7 +11,7 @@ public class UnsubscribeCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    public static final String STOP_MESSAGE = "Подписка отменена";
+    public static final String MESSAGE = "Подписка отменена";
 
     public UnsubscribeCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -20,7 +20,7 @@ public class UnsubscribeCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        sendBotMessageService.sendMessage(getChatId(update), STOP_MESSAGE);
+        sendBotMessageService.sendMessage(getChatId(update), MESSAGE);
         telegramUserService.findByChatId(getChatId(update))
                 .ifPresent(it -> {
                     it.setSubs(false);

@@ -14,7 +14,7 @@ import static com.stepa.spring.telegrambot.cocktailbot.command.CommandUtils.getC
 public class SearchingByIngrCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final DBCocktailsService dbCocktailsService;
-    public final static String MESSAGE = "Запрос не прочитан. Введите минимум 2  и максимум 6 ингредиентов через запятую.";
+    public final static String MESSAGE = "Запрос не прочитан. Введите минимум 2  и максимум 6 ингредиентов через запятую";
     public final static String NULL_MESSAGE = "Подходящего коктейля по ингредиентам не найдено";
 
     public SearchingByIngrCommand(SendBotMessageService sendBotMessageService, DBCocktailsService dbCocktailsService) {
@@ -25,11 +25,6 @@ public class SearchingByIngrCommand implements Command {
     @Override
     public void execute(Update update) {
         String[] retval = update.getMessage().getText().split("[^A-Za-zА-Яа-я]+");
-        /*String retval = Stream.of(update.getMessage().getText()
-                .split("[^A-Za-zА-Яа-я]+"))
-                .map(String::toLowerCase)
-                .distinct().sorted()
-                .forEach(System.out::println);*/
 
         for (int t = 0; t < retval.length; t++) {
             retval[t] = "%" + retval[t].toLowerCase() + "%";

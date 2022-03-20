@@ -12,7 +12,7 @@ public class SubscribeCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    public final static String START_MESSAGE = "Подписка оформлена";
+    public final static String MESSAGE = "Подписка оформлена";
 
     public SubscribeCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -35,6 +35,6 @@ public class SubscribeCommand implements Command {
                     telegramUserService.save(telegramUser);
                 });
 
-        sendBotMessageService.sendMessage(getChatId(update), START_MESSAGE);
+        sendBotMessageService.sendMessage(getChatId(update), MESSAGE);
     }
 }

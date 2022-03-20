@@ -1,0 +1,31 @@
+version: '3.1'
+
+networks:
+  cocktail-sql:
+    #driver: bridge
+    #external: true
+
+services:
+  cocktail-bot:
+    depends_on:
+      - tgdb
+    build:
+      context: .
+    networks:
+      - cocktail-sql
+    restart: always
+  tgdb:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'cocktailtb_db'
+      MYSQL_USER: 'cocktailtb_db_user'
+      MYSQL_PASSWORD: 'cocktailtb_db_password'
+      MYSQL_ROOT_PASSWORD: 'Mamuka45'
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    #command: --character-set-server=utf8 --collation-server=utf8_general_ci
+    networks:
+        - cocktail-sql

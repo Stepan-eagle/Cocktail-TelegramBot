@@ -1,0 +1,27 @@
+package com.stepa.spring.telegrambot.cocktailbot.command;
+
+import com.stepa.spring.telegrambot.cocktailbot.command.AbstractCommandTest;
+import com.stepa.spring.telegrambot.cocktailbot.command.Command;
+import com.stepa.spring.telegrambot.cocktailbot.command.common.UnknownCommand;
+import org.junit.jupiter.api.DisplayName;
+
+import static com.stepa.spring.telegrambot.cocktailbot.command.common.UnknownCommand.UNKNOWN_MESSAGE;
+
+@DisplayName("Unit-level testing for UnknownCommand")
+public class UnknownCommandTest extends AbstractCommandTest {
+
+    @Override
+    String getCommandName() {
+        return "/fdgdfgdfgdbd";
+    }
+
+    @Override
+    String getCommandMessage() {
+        return UNKNOWN_MESSAGE;
+    }
+
+    @Override
+    Command getCommand() {
+        return new UnknownCommand(sendBotMessageService);
+    }
+}
