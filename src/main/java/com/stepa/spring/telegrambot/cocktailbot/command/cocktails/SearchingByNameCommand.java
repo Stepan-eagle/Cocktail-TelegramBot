@@ -1,10 +1,8 @@
 package com.stepa.spring.telegrambot.cocktailbot.command.cocktails;
 
-import com.stepa.spring.telegrambot.cocktailbot.code.TelegramBot;
 import com.stepa.spring.telegrambot.cocktailbot.command.Command;
 import com.stepa.spring.telegrambot.cocktailbot.repository.entity.DBCocktails;
 import com.stepa.spring.telegrambot.cocktailbot.service.DBCocktailsService;
-import com.stepa.spring.telegrambot.cocktailbot.service.DBCocktailsServiceImpl;
 import com.stepa.spring.telegrambot.cocktailbot.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -35,7 +33,6 @@ public class SearchingByNameCommand implements Command {
         }
         sendBotMessageService.sendMessage(getChatId(update), "Введите новое название коктейля. " +
                 "Для смены условий поиска воспользуйтесь командным списком.");
-
     }
 
     public SearchingByNameCommand(SendBotMessageService sendBotMessageService, DBCocktailsService dbCocktailsService) {

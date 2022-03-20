@@ -18,12 +18,10 @@ import static com.stepa.spring.telegrambot.cocktailbot.command.CommandUtils.getC
 public class FindCocktailOfTheDayJob {
 
     private final FindCocktailOfTheDayService findCocktailOfTheDayService;
-    private final SendBotMessageService sendBotMessageService;
 
     @Autowired
-    public FindCocktailOfTheDayJob(FindCocktailOfTheDayService findCocktailOfTheDayService, SendBotMessageService sendBotMessageService) {
+    public FindCocktailOfTheDayJob(FindCocktailOfTheDayService findCocktailOfTheDayService) {
         this.findCocktailOfTheDayService = findCocktailOfTheDayService;
-        this.sendBotMessageService = sendBotMessageService;
     }
 
     @Scheduled(cron = "${bot.recountNewCocktail}")

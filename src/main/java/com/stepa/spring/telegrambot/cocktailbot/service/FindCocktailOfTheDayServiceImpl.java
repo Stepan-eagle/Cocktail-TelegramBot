@@ -1,14 +1,11 @@
 package com.stepa.spring.telegrambot.cocktailbot.service;
 
-import com.stepa.spring.telegrambot.cocktailbot.repository.DBCocktailsUserRepository;
 import com.stepa.spring.telegrambot.cocktailbot.repository.entity.DBCocktails;
 import com.stepa.spring.telegrambot.cocktailbot.repository.entity.TelegramUser;
 import org.springframework.stereotype.Service;
-import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.List;
 
-import static com.stepa.spring.telegrambot.cocktailbot.command.CommandUtils.getChatId;
 
 @Service
 public class FindCocktailOfTheDayServiceImpl implements FindCocktailOfTheDayService{
