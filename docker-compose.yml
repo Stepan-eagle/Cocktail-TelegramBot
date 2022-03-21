@@ -6,14 +6,14 @@ networks:
     #external: true
 
 services:
-  cocktail-bot:
-    depends_on:
-      - tgdb
-    build:
-      context: .
-    networks:
-      - cocktail-sql
-    restart: always
+ # cocktail-bot:
+ #   depends_on:
+ #     - tgdb
+ #   build:
+ #     context: .
+ #   networks:
+ #     - cocktail-sql
+ #   restart: always
   tgdb:
     image: mysql:5.7
     restart: always
