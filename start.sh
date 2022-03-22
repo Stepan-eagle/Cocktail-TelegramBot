@@ -11,5 +11,6 @@ mvn package
 docker-compose stop
 
 # Start new deployment
-docker-compose up --build
+#docker-compose up --build
+docker-compose up -d
 
