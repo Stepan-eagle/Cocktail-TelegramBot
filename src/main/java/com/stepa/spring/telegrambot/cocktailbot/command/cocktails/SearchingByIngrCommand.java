@@ -44,7 +44,7 @@ public class SearchingByIngrCommand implements Command {
             if (retval.length == 5) {
                 retrieveCocktail = dbCocktailsService.retrieveCocktailsbyFiveIngr(retval[0], retval[1], retval[2], retval[3], retval[4]);
             }
-            System.out.println("Из БД  " + retrieveCocktail);
+            System.out.println("Из БД + " + retrieveCocktail);
             System.out.println("Размер  " + retrieveCocktail.size());
             if (retrieveCocktail == null) {
                 sendBotMessageService.sendMessage(getChatId(update), NULL_MESSAGE);
