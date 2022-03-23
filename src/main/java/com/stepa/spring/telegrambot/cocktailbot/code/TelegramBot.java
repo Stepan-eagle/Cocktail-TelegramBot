@@ -39,8 +39,6 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        System.out.println("onUpdateReceived");
-        System.out.println("Чек нэйм " + checkOfName);
         if (update.hasMessage() && update.getMessage().hasText()) {
             String message = update.getMessage().getText().trim();
             String user = update.getMessage().getFrom().getUserName();
@@ -48,7 +46,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                 checkOfName = false;
                 checkOfIngr = false;
                 String commandIdentifier = message.split(" ")[0].toLowerCase();
-                System.out.println(commandIdentifier);
+                System.out.println("Обрабатываем команду " + commandIdentifier);
                 if(commandIdentifier.equals(INGR.getCommandName())){
                     checkOfIngr=true;
                     commandContainer.retrieveCommand(INGR.getCommandName(),user).execute(update);

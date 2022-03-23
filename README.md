@@ -8,16 +8,15 @@ The main idea is to create real application, which can be used by someone else.
 - User can find cocktails by ingredients
 - User can subscribe
 
-## Find new posts workflow
-The workflow of finding cocktails by schedule or by name and ingredients :
+## Find cocktails workflow
+The workflow of finding cocktails by schedule and user:
 ![workflow](bpmn.png)
 
 ## Deployment
-Deployment process as easy as possible:
 Required software:
 - terminal for running bash scripts
-- docker
-- docker-compose
+- docker-compose 
+- maven
 - mysql
 
 to deploy application, switch to needed branch and run bash script:

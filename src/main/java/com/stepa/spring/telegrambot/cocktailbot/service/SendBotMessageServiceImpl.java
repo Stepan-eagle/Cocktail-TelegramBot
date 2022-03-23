@@ -23,7 +23,6 @@ public class SendBotMessageServiceImpl implements SendBotMessageService{
         sendMessage.setChatId(chatId.toString());
         sendMessage.enableHtml(true);
         sendMessage.setText(message);
-        System.out.println("sendMessage");
 
         try {
             CocktailBot.execute(sendMessage);

@@ -19,10 +19,10 @@ public class HelpCommand implements Command {
                     + "%s - получить помощь в работе со мной\n"
                     + "%s - найти рецепт коктейля по названию\n"
                     + "%s - найти рецепт коктейля по ингредиентам\n"
-                    + "%s - подписаться на каждодневную рассылку коктейля\n"
+                    + "%s - подписаться на рассылку\n"
                     + "%s - отписаться от рассылки\n",
-            START.getCommandName(), STOP.getCommandName(), HELP.getCommandName(), STAT.getCommandName()
-            ,NAME.getCommandName(), INGR.getCommandName(), SUBSCRIBE.getCommandName(), UNSUBSCRIBE.getCommandName());
+            START.getCommandName(), STOP.getCommandName(), HELP.getCommandName(),
+            NAME.getCommandName(), INGR.getCommandName(), SUBSCRIBE.getCommandName(), UNSUBSCRIBE.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
