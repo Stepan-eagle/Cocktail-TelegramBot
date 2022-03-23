@@ -4,7 +4,7 @@
 The main idea is to create real application, which can be used by someone else. 
 
 # How it works 
-- User can find information about cocktails
+- User can find cocktails by name
 - User can find cocktails by ingredients
 - User can subscribe
 
@@ -18,12 +18,13 @@ Required software:
 - terminal for running bash scripts
 - docker
 - docker-compose
+- mysql
 
 to deploy application, switch to needed branch and run bash script:
 ```shell
 bash start.sh
 ```
-That's all.
+to fill cocktails information you need run [DataBaseOfCocktails](https://github.com/Stepan-eagle/DataBaseOfCocktails)
 
 # Local development
 For local development and testing, use `docker-compose-test.yml`.
@@ -41,7 +42,7 @@ With these configurations - run SpringBoot main method.
 # Technological stack
 - SpringBoot as a skeleton framework
 - Spring Scheduler as a task manager
-- MySQL database as a database for saving user and subscription info
+- MySQL database as a database for saving cocktails, user and subscription info
 - Flyway database migration tool
 - Telegram-bot SpringBoot starter
 - Spring Data starter
