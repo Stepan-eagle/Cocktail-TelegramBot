@@ -46,6 +46,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             String user = update.getMessage().getFrom().getUserName();
             if (message.startsWith(COMMAND_PREFIX)) {
                 checkOfName = false;
+                checkOfIngr = false;
                 String commandIdentifier = message.split(" ")[0].toLowerCase();
                 System.out.println(commandIdentifier);
                 if(commandIdentifier.equals(INGR.getCommandName())){

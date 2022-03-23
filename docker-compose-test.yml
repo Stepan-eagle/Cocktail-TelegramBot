@@ -4,14 +4,14 @@ networks:
   cocktail-sql:
 
 services:
-  cocktail-bot:
-    depends_on:
-      - test_tgdb
-    build:
-      context: .
-    networks:
-      - cocktail-sql
-    restart: always
+#  cocktail-bot:
+##    depends_on:
+#      - test_tgdb
+#    build:
+#      context: .
+#    networks:
+#      - cocktail-sql
+#    restart: always
   test_tgdb:
     image: mysql:5.7
     restart: always

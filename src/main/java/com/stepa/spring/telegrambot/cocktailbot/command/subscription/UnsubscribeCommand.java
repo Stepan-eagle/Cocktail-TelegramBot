@@ -11,7 +11,7 @@ public class UnsubscribeCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    public static final String MESSAGE = "Подписка отменена";
+    public static final String MESSAGE = "Подписка отменена.";
 
     public UnsubscribeCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;

@@ -14,7 +14,7 @@ public class SearchingByNameCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
     private final DBCocktailsService dbCocktailsService;
-    public final static String MESSAGE = "Коктейля с таким названием не найдено";
+    public final static String MESSAGE = "Коктейля с таким названием не найдено.";
 
     @Override
     public void execute(Update update) {
