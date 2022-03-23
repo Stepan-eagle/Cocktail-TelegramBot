@@ -9,7 +9,7 @@ import static com.stepa.spring.telegrambot.cocktailbot.command.CommandUtils.getC
 
 public class NameCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
-    public final static String MESSAGE = "Введите название коктейля";
+    public final static String MESSAGE = "Введите название коктейля.";
 
     @Override
     public void execute(Update update) {

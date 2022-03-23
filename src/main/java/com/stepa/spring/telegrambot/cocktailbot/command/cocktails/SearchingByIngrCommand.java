@@ -14,8 +14,10 @@ import static com.stepa.spring.telegrambot.cocktailbot.command.CommandUtils.getC
 public class SearchingByIngrCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final DBCocktailsService dbCocktailsService;
-    public final static String MESSAGE = "Запрос не прочитан. Введите минимум 2  и максимум 6 ингредиентов через запятую";
-    public final static String NULL_MESSAGE = "Подходящего коктейля по ингредиентам не найдено";
+    public final static String MESSAGE = "Запрос не прочитан. Введите минимум 2  и максимум 6 ингредиентов через запятую.";
+    public final static String NULL_MESSAGE = "К сожалению, коктейлей с такими ингредиентами не найдено.";
+    public final static String REPEAT_MESSAGE = "Введите ингредиенты. " +
+            "Для смены условий поиска воспользуйтесь командным списком.";
 
     public SearchingByIngrCommand(SendBotMessageService sendBotMessageService, DBCocktailsService dbCocktailsService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -44,10 +46,9 @@ public class SearchingByIngrCommand implements Command {
             if (retval.length == 5) {
                 retrieveCocktail = dbCocktailsService.retrieveCocktailsbyFiveIngr(retval[0], retval[1], retval[2], retval[3], retval[4]);
             }
-            System.out.println("Из БД + " + retrieveCocktail);
-            System.out.println("Размер  " + retrieveCocktail.size());
-            if (retrieveCocktail == null) {
+            if (retrieveCocktail.size()==0) {
                 sendBotMessageService.sendMessage(getChatId(update), NULL_MESSAGE);
+                sendBotMessageService.sendMessage(getChatId(update), REPEAT_MESSAGE);
             } else {
                 String[] fullRecipe = new String[retrieveCocktail.size()];
                 for (int i = 0; i < retrieveCocktail.size(); i++) {
@@ -57,8 +58,7 @@ public class SearchingByIngrCommand implements Command {
                             + ".\nТехника приготовления: " + retrieveCocktail.get(i).getTechnique();
                     sendBotMessageService.sendMessage(getChatId(update), fullRecipe[i]);
                 }
-                sendBotMessageService.sendMessage(getChatId(update), "Введите ингредиенты. " +
-                        "Для смены условий поиска воспользуйтесь командным списком.");
+                sendBotMessageService.sendMessage(getChatId(update), REPEAT_MESSAGE);
             }
         } else sendBotMessageService.sendMessage(getChatId(update), MESSAGE);
     }
