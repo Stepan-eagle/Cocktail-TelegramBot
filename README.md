@@ -1,7 +1,7 @@
 # Cocktail-TelegramBot
 
 
-##Idea
+## Idea
 The main idea is to create real application, which can be used by someone else. 
 
 ## How it works 
