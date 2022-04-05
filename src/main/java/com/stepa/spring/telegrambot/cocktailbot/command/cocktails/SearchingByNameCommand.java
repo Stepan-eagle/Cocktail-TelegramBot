@@ -15,6 +15,8 @@ public class SearchingByNameCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final DBCocktailsService dbCocktailsService;
     public final static String MESSAGE = "Коктейля с таким названием не найдено.";
+    public final static String REPEAT_MESSAGE = "Введите новое название коктейля. " +
+                                                "Для смены условий поиска воспользуйтесь командным списком.";
 
     @Override
     public void execute(Update update) {
@@ -31,8 +33,7 @@ public class SearchingByNameCommand implements Command {
                     + ".\nТехника приготовления: " + retrieveCocktail.get(i).getTechnique();
             sendBotMessageService.sendMessage(getChatId(update), fullRecipe[i]);
         }
-        sendBotMessageService.sendMessage(getChatId(update), "Введите новое название коктейля. " +
-                "Для смены условий поиска воспользуйтесь командным списком.");
+        sendBotMessageService.sendMessage(getChatId(update), REPEAT_MESSAGE);
     }
 
     public SearchingByNameCommand(SendBotMessageService sendBotMessageService, DBCocktailsService dbCocktailsService) {

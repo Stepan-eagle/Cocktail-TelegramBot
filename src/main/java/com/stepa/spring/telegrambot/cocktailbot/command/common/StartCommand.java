@@ -24,6 +24,7 @@ public class StartCommand implements Command {
     @Override
     public void execute(Update update) {
         Long chatId = getChatId(update);
+        // при использовании команды /start пользователь записывается в бд и помечается, как активный
         telegramUserService.findByChatId(chatId).ifPresentOrElse(
                 user -> {
                     user.setActive(true);

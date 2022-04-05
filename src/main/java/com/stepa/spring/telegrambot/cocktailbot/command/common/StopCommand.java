@@ -11,7 +11,7 @@ public class StopCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    public static final String STOP_MESSAGE = "Пока \uD83D\uDE1F";
+    public static final String STOP_MESSAGE = "Пока \uD83D\uDE1F"; // = Пока 😟
 
     public StopCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -21,6 +21,7 @@ public class StopCommand implements Command {
     @Override
     public void execute(Update update) {
         sendBotMessageService.sendMessage(getChatId(update), STOP_MESSAGE);
+        // при использовании команды /stop пользователь в бд помечается, как неактивный и отменяется подписка
         telegramUserService.findByChatId(getChatId(update))
                 .ifPresent(it -> {
                     it.setActive(false);

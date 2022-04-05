@@ -8,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Implementation of {@link TelegramUserService}.
- */
 @Service
 public class TelegramUserServiceImpl implements TelegramUserService{
     private final TelegramUserRepository telegramUserRepository;
