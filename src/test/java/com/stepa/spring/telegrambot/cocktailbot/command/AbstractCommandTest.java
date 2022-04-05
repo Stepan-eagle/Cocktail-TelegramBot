@@ -9,17 +9,12 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-/**
- * Abstract class for testing {@link Command}s.
- */
 abstract class AbstractCommandTest {
 
     protected TelegramBot telegramBot = Mockito.mock(TelegramBot.class);
     protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(telegramBot);
     protected DBCocktailsService dbCocktailsService = Mockito.mock(DBCocktailsService.class);
-    protected FindCocktailOfTheDayService findCocktailOfTheDayService =
-            new FindCocktailOfTheDayServiceImpl(dbCocktailsService, sendBotMessageService, telegramUserService);
 
     abstract String getCommandName();
 

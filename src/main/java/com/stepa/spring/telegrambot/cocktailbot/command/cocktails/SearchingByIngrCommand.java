@@ -17,7 +17,7 @@ public class SearchingByIngrCommand implements Command {
     public final static String MESSAGE = "Запрос не прочитан. Введите минимум 2  и максимум 6 ингредиентов через запятую.";
     public final static String NULL_MESSAGE = "К сожалению, коктейлей с такими ингредиентами не найдено.";
     public final static String REPEAT_MESSAGE = "Введите ингредиенты. " +
-            "Для смены условий поиска воспользуйтесь командным списком.";
+                                                "Для смены условий поиска воспользуйтесь командным списком.";
 
     public SearchingByIngrCommand(SendBotMessageService sendBotMessageService, DBCocktailsService dbCocktailsService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -32,6 +32,7 @@ public class SearchingByIngrCommand implements Command {
             retval[t] = "%" + retval[t].toLowerCase() + "%";
             System.out.println("Ищем  " + retval[t]);
         }
+        //поиск коктейля в зависимости от того, сколько ингредиентов
         if (retval.length > 1 & retval.length < 6) {
             List<DBCocktails> retrieveCocktail = null;
             if (retval.length == 2) {

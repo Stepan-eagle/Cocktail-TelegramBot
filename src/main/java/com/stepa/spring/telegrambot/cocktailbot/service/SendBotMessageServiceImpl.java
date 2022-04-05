@@ -27,7 +27,6 @@ public class SendBotMessageServiceImpl implements SendBotMessageService{
         try {
             CocktailBot.execute(sendMessage);
         } catch (TelegramApiException e) {
-            //todo add logging to the project.
             e.printStackTrace();
         }
     }

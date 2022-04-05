@@ -1,7 +1,5 @@
 package com.stepa.spring.telegrambot.cocktailbot.command;
 
-import com.stepa.spring.telegrambot.cocktailbot.command.AbstractCommandTest;
-import com.stepa.spring.telegrambot.cocktailbot.command.Command;
 import com.stepa.spring.telegrambot.cocktailbot.command.common.UnknownCommand;
 import org.junit.jupiter.api.DisplayName;
 

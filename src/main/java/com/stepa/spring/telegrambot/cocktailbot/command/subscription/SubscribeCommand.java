@@ -30,7 +30,7 @@ public class SubscribeCommand implements Command {
                 () -> {
                     TelegramUser telegramUser = new TelegramUser();
                     telegramUser.setSubs(true);
-                    telegramUser.setActive(true);
+                    telegramUser.setActive(true); // пометка пользователя, который хочет получать рассылку
                     telegramUser.setChatId(chatId);
                     telegramUserService.save(telegramUser);
                 });

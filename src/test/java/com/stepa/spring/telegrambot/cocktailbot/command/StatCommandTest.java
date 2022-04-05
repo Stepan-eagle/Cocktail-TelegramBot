@@ -1,7 +1,6 @@
 package com.stepa.spring.telegrambot.cocktailbot.command;
 
-import com.stepa.spring.telegrambot.cocktailbot.command.AbstractCommandTest;
-import com.stepa.spring.telegrambot.cocktailbot.command.Command;
+
 import com.stepa.spring.telegrambot.cocktailbot.command.common.StatCommand;
 
 import static com.stepa.spring.telegrambot.cocktailbot.command.CommandName.STAT;
