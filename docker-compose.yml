@@ -19,7 +19,7 @@ services:
       MYSQL_DATABASE: 'cocktailtb_db'
       MYSQL_USER: 'cocktailtb_db_user'
       MYSQL_PASSWORD: 'cocktailtb_db_password'
-      MYSQL_ROOT_PASSWORD: 'Mamuka45'
+      MYSQL_ROOT_PASSWORD: 'anotherdayanotherdollar'
     ports:
       - "3306:3306"
     expose:
