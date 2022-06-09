@@ -45,7 +45,12 @@ public class SearchingByIngrCommand implements Command {
             ingredients[t] = "%" + ingredients[t].toLowerCase() + "%";
             System.out.println("Ищем  " + ingredients[t]);
         }
+
         if (ingredients.length > 1 & ingredients.length < 6) {
+
+        //поиск коктейля в зависимости от того, сколько ингредиентов
+        if (retval.length > 1 & retval.length < 6) {
+
             List<DBCocktails> retrieveCocktail = null;
             if (ingredients.length == 2) {
                 retrieveCocktail = dbCocktailsService.retrieveCocktailsbyTwoIngr(ingredients[0], ingredients[1]);

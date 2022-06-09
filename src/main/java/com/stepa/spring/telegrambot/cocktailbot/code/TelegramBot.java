@@ -5,7 +5,6 @@ import com.stepa.spring.telegrambot.cocktailbot.service.SendBotMessageServiceImp
 import com.stepa.spring.telegrambot.cocktailbot.service.TelegramUserService;
 import com.stepa.spring.telegrambot.cocktailbot.service.DBCocktailsService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -16,10 +15,10 @@ import static com.stepa.spring.telegrambot.cocktailbot.command.CommandName.*;
 
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
-    private boolean checkOfIngr=false;
-    private boolean checkOfName=false;
+    private boolean checkOfIngr = false;
+    private boolean checkOfName = false;
     private final CommandContainer commandContainer;
-    public static String COMMAND_PREFIX = "/";
+    private static String COMMAND_PREFIX = "/";
 
     @Value("${bot.username}")
     private String username;
@@ -55,14 +54,14 @@ public class TelegramBot extends TelegramLongPollingBot {
                     checkOfName = true;
                     commandContainer.retrieveCommand(NAME.getCommandName(),user).execute(update);
                 } else {
-                    commandContainer.retrieveCommand(commandIdentifier,user).execute(update);
+                    commandContainer.retrieveCommand(commandIdentifier,user).execute(update); //обработка команды "/"
                 }
             }
-            //передача запроса на поиск коктейля
-            else if(checkOfIngr){//код по поиску ингредиентов
+
+            else if(checkOfIngr){//поиск по ингредиенту
                 commandContainer.retrieveCommand(SEARCHBYINGR.getCommandName(),user).execute(update);
             }
-            else if(checkOfName){//код по поиску названия
+            else if(checkOfName){//поиску по названию
                 commandContainer.retrieveCommand(SEARCHBYNAME.getCommandName(),user).execute(update);
             }
             else {
@@ -73,7 +72,13 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     public TelegramBot(TelegramUserService telegramUserService, DBCocktailsService dbCocktailsService,
                        @Value("#{'${bot.admins}'.split(',')}") List<String> admins) {
+
         this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),
                 telegramUserService, dbCocktailsService, admins);
+
+
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),
+                                                    telegramUserService, dbCocktailsService, admins);
+
     }
 }

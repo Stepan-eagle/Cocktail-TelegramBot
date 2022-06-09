@@ -3,7 +3,6 @@ package com.stepa.spring.telegrambot.cocktailbot.repository;
 import com.stepa.spring.telegrambot.cocktailbot.repository.entity.DBCocktails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

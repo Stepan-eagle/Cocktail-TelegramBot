@@ -10,5 +10,4 @@ import java.util.List;
 public interface TelegramUserRepository extends CrudRepository<TelegramUser, Long> {
     List<TelegramUser> findAllByActiveTrue();
     List<TelegramUser> findAllBySubsTrue();
-
 }
