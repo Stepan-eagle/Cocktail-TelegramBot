@@ -23,6 +23,7 @@ For deploying application you need to add BotName, BotToken in application.prope
 ```shell
 bash start.sh
 ```
+Also change mysql default port to 3307 because app works on 3306
 ## DataBase of Cocktails
 to fill cocktail information you need run [DataBaseOfCocktails](https://github.com/Stepan-eagle/DataBaseOfCocktails)
 

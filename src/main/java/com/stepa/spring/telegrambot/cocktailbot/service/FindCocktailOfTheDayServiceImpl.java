@@ -2,6 +2,7 @@ package com.stepa.spring.telegrambot.cocktailbot.service;
 
 import com.stepa.spring.telegrambot.cocktailbot.repository.entity.DBCocktails;
 import com.stepa.spring.telegrambot.cocktailbot.repository.entity.TelegramUser;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,9 @@ import java.util.List;
 
 @Service
 public class FindCocktailOfTheDayServiceImpl implements FindCocktailOfTheDayService{
+
+    @Value("${bot.numbersOfCocktails}")
+    private int numbersOfCocktails;
 
     private final DBCocktailsService dbCocktailsService;
     private final SendBotMessageService sendBotMessageService;
@@ -22,7 +26,8 @@ public class FindCocktailOfTheDayServiceImpl implements FindCocktailOfTheDayServ
 
     @Override
     public void findCocktail() {
-        int id = (int) (Math.random()*300);
+
+        int id = (int) (Math.random()*numbersOfCocktails);
 
         DBCocktails dbCocktails = dbCocktailsService.retrieveCocktail(id);
         String fullRecipe = "Коктейль дня:"
