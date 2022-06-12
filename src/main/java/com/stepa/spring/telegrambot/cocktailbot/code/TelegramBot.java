@@ -74,10 +74,6 @@ public class TelegramBot extends TelegramLongPollingBot {
                        @Value("#{'${bot.admins}'.split(',')}") List<String> admins) {
 
         this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),
-                telegramUserService, dbCocktailsService, admins);
-
-
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),
                                                     telegramUserService, dbCocktailsService, admins);
 
     }
